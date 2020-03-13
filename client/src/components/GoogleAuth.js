@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions'
 
 
 class GoogleAuth extends React.Component {
@@ -8,10 +10,9 @@ class GoogleAuth extends React.Component {
     // appears on the screen. The 'window' tells react that the variable gapi is on 
     // window scope. 
     componentDidMount() {
-        // loading the lib takes time. So we pass a callback as a second param
-        //to be completed once the lib is loaded. The scope is for the parts of the 
-        // user's account that we want to access. Ex) 'This website wants to access 
-        // your *email, *profile picture, etc.
+        // we pass a callback as a second param to be completed once the lib is loaded. 
+        // The scope is for the parts of the user's account that we want to access. 
+        // Ex) 'This website wants to access your *email, *profile picture, etc.
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
                 clientId: '859470240615-95gqlh2nkdviturnn74jtimjqhp0rffm.apps.googleusercontent.com',
@@ -47,7 +48,7 @@ class GoogleAuth extends React.Component {
             return (
                 <Button onClick={() => this.auth.signIn()} color='red' icon labelPosition='left'>
                     <Icon name='google' />
-                    Sign In
+                    Sign In With Google
               </Button>
             )
         }
@@ -60,4 +61,7 @@ class GoogleAuth extends React.Component {
     }
 }
 
-export default GoogleAuth;
+const mapStateToProps = (state) => {
+    return { auth }
+}
+export default connect(null, { signIn, signOut })(GoogleAuth);
