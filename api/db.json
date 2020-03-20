@@ -1,0 +1,34 @@
+{
+  "streams": [
+    {
+      "title": "Test",
+      "description": "test stream",
+      "id": 1
+    },
+    {
+      "title": "anotha one",
+      "description": "yktv",
+      "id": 2
+    },
+    {
+      "title": "title",
+      "description": "description",
+      "id": 3
+    },
+    {
+      "title": "testing",
+      "description": "different syntax",
+      "userId": {
+        "isSignedIn": true,
+        "userId": "100356468690980497767"
+      },
+      "id": 5
+    },
+    {
+      "title": "Desktop Stream",
+      "description": "test of streaming desktop video using obs",
+      "userId": "100356468690980497767",
+      "id": 7
+    }
+  ]
+}
